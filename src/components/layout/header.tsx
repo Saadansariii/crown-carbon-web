@@ -33,7 +33,7 @@ export function Header() {
           </Link>
           <Link
             href="#why-us"
-            className="text-sm font-medium hover:text-blue-500"
+            className="text-sm font-medium hover:text-brand-red-500"
           >
             Why Us
           </Link>

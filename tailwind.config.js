@@ -14,6 +14,14 @@ module.exports = {
         DEFAULT: "var(--radius)", // Custom border-radius
       },
       colors: {
+         brand: {
+          red: "#E63946",      // your primary red
+          black: "#0A0A0A",    // background black
+          gray: "#2C2C2C",     // secondary gray
+          silver: "#B0B0B0",   // accent
+          white: "#F5F5F5",    // text white
+        },
+
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
 
