@@ -7,6 +7,11 @@ import { OngoingWorkSection } from "@/components/sections/ongoing-work-section";
 import { ProductsSection } from "@/components/sections/products-section";
 import { WhyUsSection } from "@/components/sections/why-us-section";
 
+// import { Header } from "@/components/layout/header";
+// import { HeroHorizontal } from "@/components/layout/hero_horizontal";
+// import { RevealInit } from "@/components/layout/reveil-ts.";
+
+ 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -22,4 +27,24 @@ export default function Home() {
       <Footer />
     </div>
   );
-}
+}  
+
+// export default function Page() {
+//   return (
+//     <div className="flex flex-col min-h-screen">
+//     <main>
+//       <Header />
+//       <RevealInit />
+//       <HeroHorizontal />
+//         <HeroSection />
+//         <AboutSection />
+//         <ProductsSection />
+//         <WhyUsSection />
+//         <OngoingWorkSection />
+//         <ContactSection />
+     
+//     </main>
+//      <Footer />
+//      </div>
+//   )
+// }

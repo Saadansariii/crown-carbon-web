@@ -1,128 +1,221 @@
-"use client";
+// "use client"
 
-import Link from "next/link";
-import { Crown, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
+// import Link from "next/link"
+// import { Menu, X } from "lucide-react"
+// import { Button } from "@/components/ui/button"
+// import { useEffect, useState } from "react"
+
+// const NAV = [
+//   { href: "#about", label: "About" },
+//   { href: "#products", label: "Products" },
+//   { href: "#why-us", label: "Why Us" },
+//   { href: "#ongoing-work", label: "Projects" },
+//   { href: "#contact", label: "Contact" },
+// ]
+
+// export function Header() {
+//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+//   const [isScrolled, setIsScrolled] = useState(false)
+
+//   useEffect(() => {
+//     const onScroll = () => setIsScrolled(window.scrollY > 8)
+//     onScroll()
+//     window.addEventListener("scroll", onScroll, { passive: true })
+//     return () => window.removeEventListener("scroll", onScroll)
+//   }, [])
+
+//   return (
+//     <header
+//       className={[
+//         "sticky top-0 z-50 w-full border-b border-border transition-all",
+//         "bg-background/60 backdrop-blur supports-[backdrop-filter]:bg-background/40",
+//         isScrolled ? "shadow-sm bg-background/80 supports-[backdrop-filter]:bg-background/60" : "",
+//       ].join(" ")}
+//     >
+//       <div className="container mx-auto flex items-center justify-between h-16 px-4 md:px-6 gap-4">
+//         {/* Brand */}
+//         <Link
+//           href="#"
+//           className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
+//         >
+//           <img src="logofinal1.svg" alt="Company logo"
+//           //  className="h-50 w-50 md:h-12 md:w-12 object-cover rounded-md"
+//            className="h-12 w-12 md:h-20 md:w-20 object-cover rounded-md"
+//             />
+//           {/* <span className="hidden sm:inline text-base md:text-lg font-semibold tracking-tight text-foreground">
+            
+//           </span> */}
+//           <span className="sr-only">Home</span>
+//         </Link>
+
+//         {/* Desktop Navigation */}
+//         <nav className="hidden md:flex items-center gap-6">
+//           {NAV.map((item) => (
+//             <Link
+//               key={item.href}
+//               href={item.href}
+//               className="relative group px-1 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
+//             >
+//               {item.label}
+//               <span
+//                 aria-hidden="true"
+//                 className="pointer-events-none absolute inset-x-0 -bottom-0.5 h-px bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+//               />
+//             </Link>
+//           ))}
+//         </nav>
+
+//         {/* CTA */}
+//         <div className="hidden md:flex items-center gap-3">
+//           <Button size="sm" className="rounded-full">
+//             Request Quote
+//           </Button>
+//         </div>
+
+//         {/* Mobile menu button */}
+//         <button
+//           className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background/80 hover:bg-accent text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+//           onClick={() => setIsMobileMenuOpen((v) => !v)}
+//           aria-label="Toggle mobile menu"
+//           aria-expanded={isMobileMenuOpen}
+//           aria-controls="mobile-menu"
+//         >
+//           {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+//         </button>
+//       </div>
+
+//       {/* Mobile Menu */}
+//       {isMobileMenuOpen && (
+//         <div
+//           id="mobile-menu"
+//           className="md:hidden border-t border-border bg-background/95 backdrop-blur animate-in fade-in slide-in-from-top-1"
+//         >
+//           <nav className="flex flex-col px-4 py-3">
+//             {NAV.map((item) => (
+//               <Link
+//                 key={item.href}
+//                 href={item.href}
+//                 className="py-2 text-sm font-medium text-foreground/90 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
+//                 onClick={() => setIsMobileMenuOpen(false)}
+//               >
+//                 {item.label}
+//               </Link>
+//             ))}
+//             <Button className="mt-2 rounded-full" onClick={() => setIsMobileMenuOpen(false)}>
+//               Request Quote
+//             </Button>
+//           </nav>
+//         </div>
+//       )}
+//     </header>
+//   )
+// }
+
+"use client"
+
+import Link from "next/link"
+import { Menu, X } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { useEffect, useState } from "react"
+
+const NAV = [
+  { href: "#about", label: "About" },
+  { href: "#products", label: "Products" },
+  { href: "#why-us", label: "Why Us" },
+  { href: "#ongoing-work", label: "Projects" },
+  { href: "#contact", label: "Contact" },
+]
 
 export function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   return (
-    <header className="sticky top-0 z-50 px-8 w-full border-b bg-slate-300 text-white">
-      <div className="container flex h-16 items-center justify-between">
-        {/* <div className="flex items-center gap-2">
-          <Crown className="h-8 w-8 text-blue-500" />
-          <div>
-            <span className="text-xl font-bold">Crown Carbon Brush</span>
-            <p className="text-xs text-gray-400">Since 20 Years</p>
-          </div>
-        </div> */}
-        <div className="container flex h-16 items-center justify-between mt-5">
-          <img
-            src="logofinal1.svg"
-            alt="logo"
-            className="object-cover h-[100px] w-[100px]"
-          />
-        </div>
-        <nav className="hidden md:flex gap-6">
-          <Link
-            href="#about"
-            className="text-sm font-medium hover:text-blue-500"
-          >
-            About
-          </Link>
-          <Link
-            href="#products"
-            className="text-sm font-medium hover:text-blue-500"
-          >
-            Products
-          </Link>
-          <Link
-            href="#why-us"
-            className="text-sm font-medium hover:text-brand-red-500"
-          >
-            Why Us
-          </Link>
-          <Link
-            href="#ongoing-work"
-            className="text-sm font-medium hover:text-blue-500"
-          >
-            Projects
-          </Link>
-          <Link
-            href="#contact"
-            className="text-sm font-medium hover:text-blue-500"
-          >
-            Contact
-          </Link>
+    <header
+      className={[
+        "sticky top-0 z-50 w-full border-b border-border transition-all",
+        "bg-background/60 backdrop-blur supports-[backdrop-filter]:bg-background/40",
+        isScrolled ? "shadow-sm bg-background/80 supports-[backdrop-filter]:bg-background/60" : "",
+      ].join(" ")}
+    >
+      <div className="container mx-auto flex items-center justify-between h-16 px-4 md:px-6 gap-4">
+        {/* Brand */}
+        <Link
+          href="#"
+          className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
+        >
+          <img src="logofinal1.svg" alt="Company logo" className="h-10 w-10 md:h-20 md:w-20 object-cover rounded-md" />
+     
+          <span className="sr-only">Home</span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-6">
+          {NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="relative group px-1 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
+            >
+              {item.label}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 -bottom-0.5 h-px bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+              />
+            </Link>
+          ))}
         </nav>
+
+        {/* CTA */}
+        <div className="hidden md:flex items-center gap-3">
+          <Button size="sm" className="rounded-full">
+            Request Quote
+          </Button>
+        </div>
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background/80 hover:bg-accent text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          onClick={() => setIsMobileMenuOpen((v) => !v)}
           aria-label="Toggle mobile menu"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
         >
-          {isMobileMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
+          {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
-
-        <Button className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white">
-          Request Quote
-        </Button>
       </div>
-      {/* Mobile menu */}
+
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-slate-900 border-t border-slate-700">
-          <nav className="container px-16 py-4 flex flex-col space-y-4">
-            <Link
-              href="#about"
-              className="text-sm font-medium hover:text-blue-500"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="#products"
-              className="text-sm font-medium hover:text-blue-500"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Products
-            </Link>
-            <Link
-              href="#why-us"
-              className="text-sm font-medium hover:text-blue-500"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Why Us
-            </Link>
-            <Link
-              href="#ongoing-work"
-              className="text-sm font-medium hover:text-blue-500"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Projects
-            </Link>
-            <Link
-              href="#contact"
-              className="text-sm font-medium hover:text-blue-500"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <Button
-              className="bg-blue-600 hover:bg-blue-700 text-white w-full mt-4"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
+        <div
+          id="mobile-menu"
+          className="md:hidden border-t border-border bg-background/95 backdrop-blur animate-in fade-in slide-in-from-top-1"
+        >
+          <nav className="flex flex-col px-4 py-3">
+            {NAV.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="py-2 text-sm font-medium text-foreground/90 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Button className="mt-2 rounded-full" onClick={() => setIsMobileMenuOpen(false)}>
               Request Quote
             </Button>
           </nav>
         </div>
       )}
     </header>
-  );
+  )
 }
+
