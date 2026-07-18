@@ -1,140 +1,6 @@
-// "use client";
-// import { Mail, MapPin, Phone } from "lucide-react";
-// import { Button } from "../ui/button";
-
-// export function ContactSection() {
-//   return (
-//     <section id="contact" className="py-20 bg-slate-100">
-//       <div className="container max-w-5xl mx-auto">
-//         <div className="flex flex-col md:flex-row gap-12">
-//           <div className="md:w-1/2">
-//             <h2 className="text-3xl text-center sm:text-left font-bold mb-6 text-slate-900">
-//               Contact Us
-//             </h2>
-//             <p className="text-slate-700 mb-8 text-center md:text-left mx-5 md:mx-0">
-//               Reach out to discuss your specific carbon brush requirements. Our
-//               team is ready to assist you with customized solutions.
-//             </p>
-//             <div className="space-y-6">
-//               <div className="flex items-start gap-4 mx-10 md:mx-0">
-//                 <MapPin className="h-6 w-6 text-blue-600 mt-0.5" />
-//                 <div>
-//                   <h3 className="font-bold text-slate-900">Address</h3>
-//                   <p className="text-slate-600">
-//                     Malad West
-//                     <br />
-//                     Mumbai, 400095, India
-//                   </p>
-//                 </div>
-//               </div>
-//               <div className="flex items-start gap-4 mx-10 md:mx-0 ">
-//                 <Phone className="h-6 w-6 text-blue-600 mt-0.5" />
-//                 <div>
-//                   <h3 className="font-bold text-slate-900">Phone</h3>
-//                   <p className="text-slate-600">+91 7400202234</p>
-//                   <p className="text-slate-600">+91 9224245981</p>
-//                 </div>
-//               </div>
-//               <div className="flex items-start gap-4  mx-10 md:mx-0">
-//                 <Mail className="h-6 w-6 text-blue-600 mt-0.5" />
-//                 <div>
-//                   <h3 className="font-bold text-slate-900">Email</h3>
-//                   <p className="text-slate-600">crowncarbonbrush.com</p>
-//                   {/* <p className="text-slate-600">sales@crowncarbon.com</p> */}
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//           <div className="md:w-1/2 bg-white p-8 rounded-lg shadow-sm">
-//             <h3 className="text-2xl font-bold mb-6 text-slate-900">
-//               Send an Inquiry
-//             </h3>
-//             <form className="space-y-4">
-//               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-//                 <div>
-//                   <label
-//                     htmlFor="name"
-//                     className="block text-sm font-medium mb-1 text-slate-700"
-//                   >
-//                     Name
-//                   </label>
-//                   <input
-//                     type="text"
-//                     id="name"
-//                     className="w-full px-3 py-2 border border-slate-300 rounded-md"
-//                     placeholder="Your name"
-//                   />
-//                 </div>
-//                 <div>
-//                   <label
-//                     htmlFor="company"
-//                     className="block text-sm font-medium mb-1 text-slate-700"
-//                   >
-//                     Company
-//                   </label>
-//                   <input
-//                     type="text"
-//                     id="company"
-//                     className="w-full px-3 py-2 border border-slate-300 rounded-md"
-//                     placeholder="Your company"
-//                   />
-//                 </div>
-//               </div>
-//               <div>
-//                 <label
-//                   htmlFor="email"
-//                   className="block text-sm font-medium mb-1 text-slate-700"
-//                 >
-//                   Email
-//                 </label>
-//                 <input
-//                   type="email"
-//                   id="email"
-//                   className="w-full px-3 py-2 border border-slate-300 rounded-md"
-//                   placeholder="Your email"
-//                 />
-//               </div>
-//               <div>
-//                 <label
-//                   htmlFor="phone"
-//                   className="block text-sm font-medium mb-1 text-slate-700"
-//                 >
-//                   Phone
-//                 </label>
-//                 <input
-//                   type="tel"
-//                   id="phone"
-//                   className="w-full px-3 py-2 border border-slate-300 rounded-md"
-//                   placeholder="Your phone number"
-//                 />
-//               </div>
-//               <div>
-//                 <label
-//                   htmlFor="message"
-//                   className="block text-sm font-medium mb-1 text-slate-700"
-//                 >
-//                   Message
-//                 </label>
-//                 <textarea
-//                   id="message"
-//                   rows={4}
-//                   className="w-full px-3 py-2 border border-slate-300 rounded-md"
-//                   placeholder="Your requirements"
-//                 ></textarea>
-//               </div>
-//               <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-//                 Send Message
-//               </Button>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
 "use client";
-import { Mail, MapPin, Phone } from "lucide-react";
+
+import { Mail, MapPin, Phone, Clock, FileCheck } from "lucide-react";
 import { Button } from "../ui/button";
 import { useState, ChangeEvent, MouseEvent } from "react";
 
@@ -144,6 +10,7 @@ interface FormData {
   email: string;
   phone: string;
   message: string;
+  category: string;
 }
 
 interface SubmitStatus {
@@ -158,12 +25,13 @@ export function ContactSection() {
     email: "",
     phone: "",
     message: "",
+    category: "carbon-brushes",
   });
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus | null>(null);
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData({
       ...formData,
@@ -176,13 +44,32 @@ export function ContactSection() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    // Validate fields
+    if (!formData.name || !formData.email || !formData.message) {
+      setSubmitStatus({
+        type: "error",
+        message: "Please fill in all required fields (*).",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
+      // Append category to message so it is included in email body without breaking API schema
+      const formattedMessage = `[Category: ${formData.category.toUpperCase()}]\n\n${formData.message}`;
+      
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          company: formData.company,
+          email: formData.email,
+          phone: formData.phone,
+          message: formattedMessage,
+        }),
       });
 
       const result = await response.json();
@@ -190,7 +77,7 @@ export function ContactSection() {
       if (response.ok) {
         setSubmitStatus({
           type: "success",
-          message: "Message sent successfully! We'll get back to you soon.",
+          message: "Enquiry submitted successfully! Our engineering team will contact you within 24 hours.",
         });
         setFormData({
           name: "",
@@ -198,176 +85,251 @@ export function ContactSection() {
           email: "",
           phone: "",
           message: "",
+          category: "carbon-brushes",
         });
       } else {
         setSubmitStatus({
           type: "error",
-          message: result.error || "Failed to send message. Please try again.",
+          message: result.error || "Failed to submit enquiry. Please try again.",
         });
       }
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: "Network error. Please check your connection and try again.",
+        message: "Network error. Please verify your connection and try again.",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  return ( 
-    <section id="contact" className="py-20 bg-slate-100">
-      <div className="container max-w-5xl mx-auto">
-        <div className="flex flex-col md:flex-row gap-12">
-          <div className="md:w-1/2">
-            <h2 className="text-3xl text-center sm:text-left font-bold mb-6 text-slate-900">
-              Contact Us
-            </h2>
-            <p className="text-slate-700 mb-8 text-center md:text-left mx-5 md:mx-0">
-              Reach out to discuss your specific carbon brush requirements. Our
-              team is ready to assist you with customized solutions.
-            </p> 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4 mx-10 md:mx-0">
-                <MapPin className="h-6 w-6 text-blue-600 mt-0.5" />
+  return (
+    <section id="contact" className="py-24 bg-zinc-950 text-white relative">
+      {/* Decorative Blueprint Line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-zinc-800" />
+
+      <div className="container max-w-7xl mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          
+          {/* Left Column: Contact Channels & Metadata */}
+          <div className="lg:col-span-5 space-y-8">
+            <div className="space-y-2">
+              <span className="text-[11px] font-bold text-industry-accent tracking-widest uppercase block">
+                07 / CONTACT & INQUIRIES
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight uppercase">
+                Submit an Engineering Inquiry
+              </h2>
+              <p className="text-zinc-400 text-sm leading-relaxed">
+                Connect with our technical representatives in Mumbai. Provide your dimensional parameters, application speed, or copper shunt details, and we'll draft a specifications sheet and quote.
+              </p>
+            </div>
+
+            {/* Tactile contact channel info */}
+            <div className="space-y-6 pt-4">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-zinc-900 border border-zinc-800 text-industry-accent rounded-none">
+                  <MapPin className="h-5 w-5" />
+                </div>
                 <div>
-                  <h3 className="font-bold text-slate-900">Address</h3>
-                  <p className="text-slate-600">
-                    Malad West
-                    <br />
-                    Mumbai, 400095, India
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-300 mb-1">Office Address</h3>
+                  <p className="text-sm text-zinc-450 leading-relaxed">
+                    Malad West, Mumbai, 400095, Maharashtra, India
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-4 mx-10 md:mx-0 ">
-                <Phone className="h-6 w-6 text-blue-600 mt-0.5" />
+
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-zinc-900 border border-zinc-800 text-industry-accent rounded-none">
+                  <Phone className="h-5 w-5" />
+                </div>
                 <div>
-                  <h3 className="font-bold text-slate-900">Phone</h3>
-                  <p className="text-slate-600">+91 7400202234</p>
-                  <p className="text-slate-600">+91 9224245981</p>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-300 mb-1">Direct Lines</h3>
+                  <p className="text-sm text-zinc-450 font-mono">+91 7400202234</p>
+                  <p className="text-sm text-zinc-450 font-mono">+91 9224245981</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4 mx-10 md:mx-0">
-                <Mail className="h-6 w-6 text-blue-600 mt-0.5" />
+
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-zinc-900 border border-zinc-800 text-industry-accent rounded-none">
+                  <Mail className="h-5 w-5" />
+                </div>
                 <div>
-                  <h3 className="font-bold text-slate-900">Email</h3>
-                  <p className="text-slate-600">crowncarbonbrush.com</p>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-300 mb-1">Corporate Email</h3>
+                  <p className="text-sm text-zinc-450 font-mono">crowncarbonbrush@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-zinc-900 border border-zinc-800 text-industry-accent rounded-none">
+                  <Clock className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-300 mb-1">Response Time</h3>
+                  <p className="text-sm text-zinc-450">Within 24 business hours guaranteed</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="md:w-1/2 bg-white p-8 rounded-lg shadow-sm">
-            <h3 className="text-2xl font-bold mb-6 text-slate-900">
-              Send an Inquiry
-            </h3>
 
-            {submitStatus && (
-              <div
-                className={`mb-4 p-4 rounded-md ${
-                  submitStatus.type === "success"
-                    ? "bg-green-50 text-green-700 border border-green-200"
-                    : "bg-red-50 text-red-700 border border-red-200"
-                }`}
-              >
-                {submitStatus.message}
+          {/* Right Column: Premium Inquiry Console Form */}
+          <div className="lg:col-span-7 bg-zinc-900 border border-zinc-800 p-8 shadow-2xl relative">
+            <div 
+              className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-5 pointer-events-none z-0" 
+              aria-hidden="true" 
+            />
+            
+            <div className="relative z-10 space-y-6">
+              <div className="flex items-center gap-2 mb-6">
+                <FileCheck className="h-5 w-5 text-industry-accent" />
+                <h3 className="text-lg font-bold uppercase tracking-wider text-white">
+                  Technical Specifications Form
+                </h3>
               </div>
-            )}
 
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {submitStatus && (
+                <div
+                  className={`p-4 text-xs font-semibold border ${
+                    submitStatus.type === "success"
+                      ? "bg-green-950/40 text-green-400 border-green-800"
+                      : "bg-red-950/40 text-red-400 border-red-800"
+                  }`}
+                >
+                  {submitStatus.message}
+                </div>
+              )}
+
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Name field */}
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-1.5"
+                    >
+                      Your Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-zinc-950 border border-zinc-800 px-4 py-3 text-xs text-white placeholder-zinc-600 rounded-none focus:outline-none focus:border-industry-accent focus:ring-1 focus:ring-industry-accent transition-all"
+                      placeholder="e.g. John Doe"
+                    />
+                  </div>
+
+                  {/* Company field */}
+                  <div>
+                    <label
+                      htmlFor="company"
+                      className="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-1.5"
+                    >
+                      Company Name
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="w-full bg-zinc-950 border border-zinc-800 px-4 py-3 text-xs text-white placeholder-zinc-600 rounded-none focus:outline-none focus:border-industry-accent focus:ring-1 focus:ring-industry-accent transition-all"
+                      placeholder="e.g. Steel Industries Ltd."
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Email field */}
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-1.5"
+                    >
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-zinc-950 border border-zinc-800 px-4 py-3 text-xs text-white placeholder-zinc-600 rounded-none focus:outline-none focus:border-industry-accent focus:ring-1 focus:ring-industry-accent transition-all"
+                      placeholder="e.g. buyer@company.com"
+                    />
+                  </div>
+
+                  {/* Phone field */}
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-1.5"
+                    >
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full bg-zinc-950 border border-zinc-800 px-4 py-3 text-xs text-white placeholder-zinc-600 rounded-none focus:outline-none focus:border-industry-accent focus:ring-1 focus:ring-industry-accent transition-all"
+                      placeholder="e.g. +91 9999999999"
+                    />
+                  </div>
+                </div>
+
+                {/* Product Category Selector Dropdown */}
                 <div>
                   <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-1 text-slate-700"
+                    htmlFor="category"
+                    className="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-1.5"
                   >
-                    Name *
+                    Select Component Category
                   </label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={formData.name}
+                  <select
+                    id="category"
+                    value={formData.category}
+                    onChange={handleChange}
+                    className="w-full bg-zinc-950 border border-zinc-800 px-4 py-3 text-xs text-white rounded-none focus:outline-none focus:border-industry-accent focus:ring-1 focus:ring-industry-accent transition-all cursor-pointer"
+                  >
+                    <option value="carbon-brushes">Industrial Carbon Brushes</option>
+                    <option value="brush-holders">Heavy-Duty Brush Holders</option>
+                    <option value="slip-rings">Precision Slip Rings</option>
+                    <option value="custom-solution">Custom Sintered Solutions</option>
+                  </select>
+                </div>
+
+                {/* Requirements details message */}
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-1.5"
+                  >
+                    Technical Specifications / Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={5}
+                    value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Your name"
-                  />
+                    className="w-full bg-zinc-950 border border-zinc-800 px-4 py-3 text-xs text-white placeholder-zinc-650 rounded-none focus:outline-none focus:border-industry-accent focus:ring-1 focus:ring-industry-accent transition-all"
+                    placeholder="Provide pocket dimensions, bevel angles, spring tension requirements, shunt lengths or raw grades here..."
+                  ></textarea>
                 </div>
-                <div>
-                  <label
-                    htmlFor="company"
-                    className="block text-sm font-medium mb-1 text-slate-700"
-                  >
-                    Company
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Your company"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-1 text-slate-700"
+
+                {/* Submit button */}
+                <Button
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                  className="w-full bg-industry-accent hover:bg-industry-accent/90 text-white rounded-none font-bold uppercase tracking-wider text-xs py-6 mt-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Your email"
-                />
+                  {isSubmitting ? "Submitting Inquiry..." : "Submit Inquiry Details"}
+                </Button>
               </div>
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium mb-1 text-slate-700"
-                >
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Your phone number"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-1 text-slate-700"
-                >
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Your requirements"
-                ></textarea>
-              </div>
-              <Button
-                onClick={handleSubmit}
-                disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
             </div>
           </div>
+
         </div>
       </div>
     </section>
