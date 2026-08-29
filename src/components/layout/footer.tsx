@@ -82,7 +82,7 @@ export function Footer({ lang }: FooterProps) {
                 { href: "#products", label: prod.tabBrushes },
                 { href: "#products", label: prod.tabHolders },
                 { href: "#products", label: prod.tabRings },
-                { href: "#infrastructure", label: nav.infrastructure },
+                { href: "#products", label: prod.tabSprings },
               ].map((item) => (
                 <li key={item.label}>
                   <Link

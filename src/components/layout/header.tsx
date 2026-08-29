@@ -55,25 +55,14 @@ export function Header({ lang, setLang }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full transition-all duration-305 border-t-2 border-t-industry-accent border-b bg-zinc-950/95 backdrop-blur-md border-zinc-800 shadow-xl py-3.5">
       <div className="container mx-auto flex items-center justify-between px-4 md:px-8 max-w-7xl">
         
-        {/* Brand Logo Grid */}
-        <Link href="#" className="flex items-center gap-2.5 focus-visible:outline-none group">
-          <div className="relative flex items-center justify-center p-2 rounded-none bg-zinc-900 border border-zinc-800 group-hover:border-industry-accent transition-all duration-300">
-            <img 
-              src="logofinal1.svg" 
-              alt="Crown Carbon logo" 
-              className="h-8 w-8 object-contain transition-transform group-hover:rotate-6" 
-            />
-            {/* Design dot */}
-            <span className="absolute -top-1 -right-1 w-2 h-2 bg-industry-accent border border-zinc-950" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-xs font-black tracking-widest text-white uppercase group-hover:text-industry-accent transition-colors leading-none mb-0.5">
-              CROWN
-            </span>
-            <span className="text-[7.5px] font-bold text-zinc-500 uppercase tracking-[0.22em] leading-none">
-              CARBON BRUSH
-            </span>
-          </div>
+        {/* Brand Name */}
+        <Link href="#" className="flex flex-col focus-visible:outline-none group">
+          <span className="text-sm md:text-base font-black tracking-widest text-white uppercase group-hover:text-industry-accent transition-colors leading-none mb-0.5">
+            CROWN
+          </span>
+          <span className="text-[8px] md:text-[9px] font-bold text-zinc-400 uppercase tracking-[0.25em] leading-none">
+            CARBON BRUSH
+          </span>
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -161,34 +150,77 @@ export function Header({ lang, setLang }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer with solid light-grey background & high contrast readable text */}
       {isMobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="lg:hidden fixed inset-x-0 top-[70px] border-b border-zinc-850 bg-zinc-950/98 backdrop-blur-xl animate-in fade-in slide-in-from-top-2 duration-150"
+          className="lg:hidden absolute inset-x-0 top-full bg-zinc-100 border-b-2 border-industry-accent shadow-2xl z-50 py-6 px-6 animate-in fade-in slide-in-from-top-2 duration-150"
         >
-          <nav className="flex flex-col px-6 py-6 gap-3.5">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={[
-                  "py-1.5 text-[10px] font-bold uppercase tracking-widest transition-colors",
-                  activeSection === item.href ? "text-industry-accent" : "text-zinc-400 hover:text-white",
-                ].join(" ")}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+          <div className="flex flex-col gap-4">
+            {/* Primary Nav Links */}
+            <nav className="flex flex-col divide-y divide-zinc-250">
+              {NAV.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={[
+                    "py-3 text-xs font-extrabold uppercase tracking-widest transition-colors flex items-center justify-between",
+                    activeSection === item.href ? "text-industry-accent" : "text-zinc-900 hover:text-industry-accent",
+                  ].join(" ")}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <span>{item.label}</span>
+                  <span className="text-zinc-400 text-xs font-mono">→</span>
+                </Link>
+              ))}
+            </nav>
+
+            {/* Direct Categories Quick Links */}
+            <div className="pt-3 border-t border-zinc-300">
+              <span className="text-[9.5px] font-black uppercase tracking-widest text-zinc-600 block mb-2.5">
+                {translations[lang].footer.catTitle}
+              </span>
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  href="#products"
+                  className="px-3 py-2.5 bg-white border border-zinc-300 text-[10px] font-extrabold text-zinc-900 hover:border-industry-accent hover:text-industry-accent uppercase transition-all text-center shadow-xs"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {translations[lang].products.tabBrushes}
+                </Link>
+                <Link
+                  href="#products"
+                  className="px-3 py-2.5 bg-white border border-zinc-300 text-[10px] font-extrabold text-zinc-900 hover:border-industry-accent hover:text-industry-accent uppercase transition-all text-center shadow-xs"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {translations[lang].products.tabHolders}
+                </Link>
+                <Link
+                  href="#products"
+                  className="px-3 py-2.5 bg-white border border-zinc-300 text-[10px] font-extrabold text-zinc-900 hover:border-industry-accent hover:text-industry-accent uppercase transition-all text-center shadow-xs"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {translations[lang].products.tabRings}
+                </Link>
+                <Link
+                  href="#products"
+                  className="px-3 py-2.5 bg-white border border-zinc-300 text-[10px] font-extrabold text-zinc-900 hover:border-industry-accent hover:text-industry-accent uppercase transition-all text-center shadow-xs"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {translations[lang].products.tabSprings}
+                </Link>
+              </div>
+            </div>
+
+            {/* CTA Button */}
             <Button 
               asChild
-              className="mt-2 bg-industry-accent hover:bg-industry-accent/90 text-white rounded-none w-full py-4.5 font-bold uppercase tracking-widest text-[9px]"
+              className="mt-2 bg-industry-accent hover:bg-industry-accent/90 text-white rounded-none w-full py-5 font-extrabold uppercase tracking-widest text-xs shadow-md"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <Link href="#contact">{t.quote}</Link>
             </Button>
-          </nav>
+          </div>
         </div>
       )}
     </header>

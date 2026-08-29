@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Button } from "../ui/button";
-import { Download, CheckCircle, ArrowUpRight, FileSpreadsheet } from "lucide-react";
+import { CheckCircle, ArrowUpRight, FileSpreadsheet } from "lucide-react";
 import { translations } from "@/lib/translations";
 
 interface ProductsSectionProps {
@@ -14,7 +14,6 @@ export function ProductsSection({ lang }: ProductsSectionProps) {
   const [activeTab, setActiveTab] = useState<string>("carbon-brushes");
 
   const t = translations[lang].products;
-  const nav = translations[lang].nav;
 
   const productCategories = [
     {
@@ -62,6 +61,21 @@ export function ProductsSection({ lang }: ProductsSectionProps) {
       ],
       grades: ["Molded Assemblies", "Machined Shaft", "Split Ring"],
     },
+    {
+      id: "springs",
+      title: t.springsTitle,
+      subtitle: t.springsSub,
+      description: t.springsDesc,
+      image: "/assets/carbon_image/carbon1.jpeg",
+      features: [t.springsF1, t.springsF2, t.springsF3, t.springsF4],
+      specs: [
+        { label: t.specLabels.material, value: "Stainless Steel SUS301/304" },
+        { label: t.specLabels.tension, value: "1.5 N - 15 N (Calibrated)" },
+        { label: t.specLabels.fatigue, value: "50,000+ Cycles" },
+        { label: t.specLabels.thickness, value: "0.1mm - 0.8mm Strip" },
+      ],
+      grades: ["Constant Force Scroll", "Helical Tension", "Cantilever Leaf"],
+    },
   ];
 
   const activeProduct = productCategories.find((p) => p.id === activeTab) || productCategories[0];
@@ -74,18 +88,20 @@ export function ProductsSection({ lang }: ProductsSectionProps) {
       const messageInput = document.getElementById("message") as HTMLTextAreaElement | null;
       if (messageInput) {
         messageInput.value = lang === "hi" 
-          ? `नमस्ते क्राउन कार्बन टीम,\n\nहमें ${productName} के लिए तकनीकी विनिर्देश और वाणिज्यिक कोटेशन (Commercial Quote) की आवश्यकता है।\n\n[कृपया मात्रा, आकार या सामग्री विवरण दर्ज करें]`
-          : `Dear Crown Carbon Team,\n\nWe are looking for technical specifications and a commercial quote for: ${productName}.\n\n[Please specify quantity, drawings, or material grade if known]`;
+          ? `नमस्ते क्राउन कार्बन टीम,\n\nहमें ${productName} के लिए तकनीकी विनिर्देश और कोटेशन की आवश्यकता है।\n\n[कृपया मात्रा, आकार या सामग्री विवरण दर्ज करें]`
+          : `Dear Crown Carbon Team,\n\nWe are looking for technical specifications and a quote for: ${productName}.\n\n[Please specify quantity, drawings, or material grade if known]`;
       }
       
       const categorySelect = document.getElementById("category") as HTMLSelectElement | null;
       if (categorySelect) {
-        if (productName.includes("Brush") || productName.includes("ब्रश")) {
-          categorySelect.value = "carbon-brushes";
-        } else if (productName.includes("Holder") || productName.includes("होल्डर")) {
+        if (productName.toLowerCase().includes("holder") || productName.includes("होल्डर")) {
           categorySelect.value = "brush-holders";
-        } else if (productName.includes("Ring") || productName.includes("रिंग")) {
+        } else if (productName.toLowerCase().includes("brush") || productName.includes("ब्रश")) {
+          categorySelect.value = "carbon-brushes";
+        } else if (productName.toLowerCase().includes("ring") || productName.includes("रिंग")) {
           categorySelect.value = "slip-rings";
+        } else if (productName.toLowerCase().includes("spring") || productName.includes("स्प्रिंग")) {
+          categorySelect.value = "springs";
         }
       }
     }
@@ -98,29 +114,20 @@ export function ProductsSection({ lang }: ProductsSectionProps) {
       <div className="container max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="space-y-2">
-            <span className="text-[10px] font-bold text-industry-accent tracking-widest uppercase block">
-              {t.kicker}
-            </span>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 uppercase">
-              {t.title}
-            </h2>
-            <p className="text-zinc-500 max-w-xl text-xs leading-relaxed">
-              {t.desc}
-            </p>
-          </div>
-          
-          <div className="shrink-0">
-            <Button className="bg-zinc-900 hover:bg-zinc-800 text-white rounded-none flex items-center gap-2 px-5 py-4 font-bold uppercase tracking-wider text-[10px] transition-all">
-              <Download className="h-4 w-4" />
-              {t.downloadCat}
-            </Button>
-          </div>
+        <div className="mb-12 space-y-2">
+          <span className="text-[10px] font-bold text-industry-accent tracking-widest uppercase block">
+            {t.kicker}
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 uppercase">
+            {t.title}
+          </h2>
+          <p className="text-zinc-500 max-w-2xl text-xs leading-relaxed">
+            {t.desc}
+          </p>
         </div>
 
-        {/* Tab Buttons */}
-        <div className="flex flex-wrap border-b border-zinc-200 mb-8">
+        {/* Tab Buttons for 4 Categories */}
+        <div className="flex flex-wrap border-b border-zinc-200 mb-8 gap-1">
           {productCategories.map((cat) => (
             <button
               key={cat.id}
@@ -131,7 +138,13 @@ export function ProductsSection({ lang }: ProductsSectionProps) {
                   : "border-transparent text-zinc-500 hover:text-zinc-800"
               }`}
             >
-              {cat.id === "carbon-brushes" ? t.tabBrushes : cat.id === "brush-holders" ? t.tabHolders : t.tabRings}
+              {cat.id === "carbon-brushes"
+                ? t.tabBrushes
+                : cat.id === "brush-holders"
+                ? t.tabHolders
+                : cat.id === "slip-rings"
+                ? t.tabRings
+                : t.tabSprings}
             </button>
           ))}
         </div>
@@ -209,7 +222,7 @@ export function ProductsSection({ lang }: ProductsSectionProps) {
                 </ul>
               </div>
 
-              {/* Sintering Grades */}
+              {/* Product Varieties / Material Options */}
               <div className="space-y-1.5">
                 <h4 className="text-[10px] font-bold uppercase tracking-wider text-zinc-800">
                   {t.gradesLabel}

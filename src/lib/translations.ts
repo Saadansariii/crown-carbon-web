@@ -15,8 +15,7 @@ export interface TranslationContent {
     subtitle: string;
     desc: string;
     tagline: string;
-    ctaSolutions: string;
-    ctaContact: string;
+    ctaQuote: string;
     h1: string;
     h2: string;
     h3: string;
@@ -41,10 +40,10 @@ export interface TranslationContent {
     kicker: string;
     title: string;
     desc: string;
-    downloadCat: string;
     tabBrushes: string;
     tabHolders: string;
     tabRings: string;
+    tabSprings: string;
     specsTitle: string;
     specsSub: string;
     advLabel: string;
@@ -73,6 +72,13 @@ export interface TranslationContent {
     ringsF2: string;
     ringsF3: string;
     ringsF4: string;
+    springsTitle: string;
+    springsSub: string;
+    springsDesc: string;
+    springsF1: string;
+    springsF2: string;
+    springsF3: string;
+    springsF4: string;
     specLabels: {
       grades: string;
       current: string;
@@ -89,16 +95,15 @@ export interface TranslationContent {
       surface: string;
       dielectric: string;
       resistance: string;
+      material: string;
+      fatigue: string;
+      thickness: string;
     };
   };
   capabilities: {
     kicker: string;
     title: string;
     desc: string;
-    processKicker: string;
-    processTitle: string;
-    payLabel: string;
-    payDesc: string;
     cap1Title: string;
     cap1Desc: string;
     cap2Title: string;
@@ -180,6 +185,7 @@ export interface TranslationContent {
     catBrushes: string;
     catHolders: string;
     catRings: string;
+    catSprings: string;
     catCustom: string;
     placeholderMsg: string;
   };
@@ -199,77 +205,83 @@ export const translations: Record<"en" | "hi", TranslationContent> = {
     nav: {
       home: "Home",
       about: "About Us",
-      products: "Products",
+      products: "Our Products",
       industries: "Industries",
       infrastructure: "Process & Sample",
       contact: "Contact",
-      quote: "Send Enquiry",
-      techQuote: "Get Specs Quote",
+      quote: "Request a Quote",
+      techQuote: "Request a Quote",
     },
     hero: {
-      badge: "Established 2006 | Mumbai",
-      title: "Custom Manufactured",
-      subtitle: "Carbon Brushes",
-      desc: "We manufacture high-grade carbon brushes, brush holders, and slip rings. Send us your sample—we build an exact matching replica.",
+      badge: "TRUSTED CARBON BRUSH MANUFACTURER WITH 25+ YEARS OF EXPERIENCE",
+      title: "PRECISION CARBON BRUSHES,",
+      subtitle: "BUILT TO LAST.",
+      desc: "Manufacturing premium carbon brushes for electric motors, generators and industrial equipment with consistent quality.",
       tagline: "We care for your armatures, fulfilling the highest quality standards.",
-      ctaSolutions: "Products",
-      ctaContact: "Send Sample",
+      ctaQuote: "Request a Quote",
       h1: "High Thermal Tolerance",
       h2: "Sample Replication",
       h3: "Anti-Spark Materials",
     },
     about: {
-      kicker: "01 / Who We Are",
-      title: "Carbon Brush Specialists",
-      desc1: "Since 2006, Crown Carbon Brush has manufactured replacements for worn-out industrial motor components in Mumbai. We serve plants across India directly.",
-      desc2: "Ship us your used or broken brush/holder. We test the material compound in our laboratory and produce an exact functional replacement.",
-      statYears: "20 Years",
-      statYearsDesc: "Technical fabrication experience",
+      kicker: "01 / WHO WE ARE",
+      title: "Precision Carbon Brush Specialists",
+      desc1: "With over 25 years of technical manufacturing experience, Crown Carbon Brush produces high-grade carbon brushes, brush holders, slip rings, and springs in Mumbai. We serve industrial plants across India directly.",
+      desc2: "Ship us your sample or motor specifications. We analyze the material compound in our laboratory and manufacture exact functional replacements.",
+      statYears: "25+ Years",
+      statYearsDesc: "Technical manufacturing experience",
       statOem: "100+ Specs",
       statOemDesc: "Material grades matching standards",
       statUnits: "500k+ Units",
       statUnitsDesc: "Delivered directly to factories",
       statNetwork: "Pan-India",
-      statNetworkDesc: "Direct supply and consultation",
+      statNetworkDesc: "Direct supply and technical consultation",
       qaLabel: "Lab Testing",
       qaVal: "Grade Calibration",
     },
     products: {
-      kicker: "02 / Product Range",
-      title: "Send Your Sample for Exact Fit",
-      desc: "We replicate parts to match your speed and conductivity requirements. Choose a category to inspect parameters.",
-      downloadCat: "Download Catalog",
-      tabBrushes: "Carbon Brushes",
-      tabHolders: "Brush Holders",
-      tabRings: "Slip Rings",
+      kicker: "02 / OUR PRODUCTS",
+      title: "Precision Engineered Industrial Components",
+      desc: "We manufacture custom-engineered carbon brushes, holders, slip rings, and constant-force springs for demanding applications. Select a category below.",
+      tabBrushes: "Carbon Brush",
+      tabHolders: "Carbon Brush Holder",
+      tabRings: "Slip Ring Units",
+      tabSprings: "Springs",
       specsTitle: "Technical Specification",
       specsSub: "Standard Ranges",
-      advLabel: "Operational Benefits",
+      advLabel: "Key Advantages",
       gradesLabel: "Raw Material Options",
-      opEnvLabel: "Industries Served",
+      opEnvLabel: "Applications",
       enquiryBtn: "Enquire About This Component",
       drawingBtn: "Request Specs Verification",
-      brushesTitle: "Industrial Carbon Brushes",
-      brushesSub: "Tailored grades for stable motor commutation",
-      brushesDesc: "Custom-cut brushes engineered for low commutator wear. Available in electrographitic, copper-graphite, and silver-graphite.",
-      brushesF1: "Low wear rate under extreme mechanical loads",
-      brushesF2: "Pre-bevelled top angles and custom shunts",
+      brushesTitle: "Carbon Brush",
+      brushesSub: "Tailored electrographitic & metal-graphite grades",
+      brushesDesc: "Precision-cut brushes engineered for low commutator wear and high conductivity in AC/DC motors and generators.",
+      brushesF1: "Low wear rate under extreme mechanical & thermal loads",
+      brushesF2: "Pre-bevelled top angles and custom copper shunts",
       brushesF3: "Tamp-secured copper cables with insulated sleeves",
       brushesF4: "Calibrated density to prevent spark erosion",
-      holdersTitle: "Constant-Force Brush Holders",
-      holdersSub: "Bronze/brass castings with constant tension springs",
-      holdersDesc: "Maintains uniform spring force throughout the brush lifespan to prevent brush bounce.",
-      holdersF1: "Corrosion-resistant cast brass / bronze alloys",
+      holdersTitle: "Carbon Brush Holder",
+      holdersSub: "Cast brass & bronze holders with constant tension",
+      holdersDesc: "Precision-machined brush holders designed to maintain uniform brush positioning and alignment throughout operations.",
+      holdersF1: "Corrosion-resistant cast brass and bronze alloys",
       holdersF2: "Sandvik stainless steel constant-force springs",
       holdersF3: "Precise slot tolerances matching DIN standards",
-      holdersF4: "Class H reinforced insulating washers",
-      ringsTitle: "Precision Slip Rings",
-      ringsSub: "Rotary joints for electrical transfer",
-      ringsDesc: "Enables reliable transfer of electrical currents from stationary sources to rotating shafts.",
+      holdersF4: "Class H reinforced insulating washers and bushes",
+      ringsTitle: "Slip Ring Units",
+      ringsSub: "Precision rotary joints for power & signal transfer",
+      ringsDesc: "High-integrity slip ring assemblies enabling continuous electrical transfer from stationary sources to rotating shafts.",
       ringsF1: "Mirror-polished copper or phosphor bronze tracks",
       ringsF2: "Phenolic molded cores for high voltage safety",
       ringsF3: "Split or solid layouts for quick installation",
       ringsF4: "Voltages from 24V DC up to 11kV AC",
+      springsTitle: "Springs",
+      springsSub: "Constant force springs for uniform contact pressure",
+      springsDesc: "High-tensile coiled springs engineered to deliver steady pressure, preventing brush bounce and commutator damage.",
+      springsF1: "Maintains uniform pressure across full brush wear lifespan",
+      springsF2: "High-grade SUS301 stainless steel spring strips",
+      springsF3: "Prevents micro-sparking and commutator surface pitting",
+      springsF4: "Custom force ratings calibrated to holder dimensions",
       specLabels: {
         grades: "Grades",
         current: "Current Density",
@@ -283,19 +295,18 @@ export const translations: Record<"en" | "hi", TranslationContent> = {
         insulation: "Insulation Class",
         voltage: "Voltage Range",
         circuits: "Circuit Poles",
-        surface: "Surface Roughness",
+        surface: "Surface Finish",
         dielectric: "Dielectric Capacity",
         resistance: "Insulation Resistance",
+        material: "Material",
+        fatigue: "Fatigue Life",
+        thickness: "Strip Thickness",
       },
     },
     capabilities: {
       kicker: "03 / PROCESS & CAPABILITIES",
       title: "Sample-to-Production Stepper",
-      desc: "Here is exactly how we copy and manufacture your custom carbon components. We keep the workflow transparent.",
-      processKicker: "COMMERCIAL TERMS",
-      processTitle: "Pricing & Dispatch Rules",
-      payLabel: "Payment Terms",
-      payDesc: "50% Advance Payment on order | 50% Remaining Payment before dispatch.",
+      desc: "Here is exactly how we copy and manufacture your custom carbon components with high precision.",
       cap1Title: "CNC Machining",
       cap1Desc: "Bevels and profiles milled to exact slot tolerances of ±0.05mm.",
       cap2Title: "Copper Shunts",
@@ -317,8 +328,8 @@ export const translations: Record<"en" | "hi", TranslationContent> = {
       kicker: "04 / OUR VALUES",
       title: "Direct B2B Supply Benefits",
       desc: "No middlemen. We work directly with engineers and purchase departments.",
-      f1Title: "20 Years Work",
-      f1Desc: "Direct manufacturing experience since 2006 in Mumbai.",
+      f1Title: "25+ Years Experience",
+      f1Desc: "Over 25 years of direct technical manufacturing experience in Mumbai.",
       f2Title: "Fast Replication",
       f2Desc: "Send your sample, we prepare CAD drawings and sinters quickly.",
       f3Title: "Custom Specifications",
@@ -374,17 +385,18 @@ export const translations: Record<"en" | "hi", TranslationContent> = {
       requiredMsg: "Please fill in all required fields (*).",
       successMsg: "Inquiry received. We will contact you soon.",
       errorMsg: "Failed to submit. Please try again.",
-      catBrushes: "Carbon Brushes",
-      catHolders: "Brush Holders",
-      catRings: "Slip Rings",
-      catCustom: "Custom Solution",
-      placeholderMsg: "Describe pocket sizes, bevels, shunts, or note if you are shipping a sample to us...",
+      catBrushes: "Carbon Brush",
+      catHolders: "Carbon Brush Holder",
+      catRings: "Slip Ring Units",
+      catSprings: "Springs",
+      catCustom: "Custom Requirement",
+      placeholderMsg: "Describe pocket sizes, bevels, shunts, springs or note if you are shipping a sample...",
     },
     footer: {
-      desc: "Crown Carbon Brush manufactures custom carbon brushes, holders, and slip rings to match industrial blueprints in Mumbai since 2006.",
+      desc: "Crown Carbon Brush manufactures custom carbon brushes, brush holders, slip rings, and springs with over 25 years of technical manufacturing experience in Mumbai.",
       tagline: "We care for your armatures, fulfilling the highest quality standards.",
       navTitle: "Quick Links",
-      catTitle: "Products",
+      catTitle: "Our Products",
       officeTitle: "Contact Info",
       officeVal: "Malad West, Mumbai, 400095, Maharashtra, India",
       madeInIndia: "Made in India",
@@ -394,77 +406,83 @@ export const translations: Record<"en" | "hi", TranslationContent> = {
     nav: {
       home: "मुख्य पृष्ठ",
       about: "हमारे बारे में",
-      products: "उत्पाद",
+      products: "हमारे उत्पाद",
       industries: "उद्योग",
       infrastructure: "प्रक्रिया और सैंपल",
       contact: "संपर्क",
-      quote: "पूछताछ भेजें",
-      techQuote: "स्पेक्स कोटेशन",
+      quote: "कोटेशन प्राप्त करें",
+      techQuote: "कोटेशन प्राप्त करें",
     },
     hero: {
-      badge: "स्थापना 2006 | मुंबई",
-      title: "कस्टम निर्मित",
-      subtitle: "कार्बन ब्रश",
-      desc: "हम उच्च गुणवत्ता वाले कार्बन ब्रश, होल्डर और स्लिप रिंग बनाते हैं। हमें सैंपल भेजें—हम बिल्कुल वैसा ही उत्पाद तैयार करेंगे।",
+      badge: "25+ से अधिक वर्षों के अनुभव के साथ विश्वसनीय कार्बन ब्रश निर्माता",
+      title: "सटीक कार्बन ब्रश,",
+      subtitle: "लंबे समय तक चलने के लिए निर्मित।",
+      desc: "इलेक्ट्रिक मोटर, जनरेटर और औद्योगिक उपकरणों के लिए निरंतर गुणवत्ता के साथ प्रीमियम कार्बन ब्रश का निर्माण।",
       tagline: "हम आपके आर्मेचर की सुरक्षा करते हैं, उच्चतम गुणवत्ता मानकों को पूरा करते हैं।",
-      ctaSolutions: "उत्पाद श्रेणियां",
-      ctaContact: "सैंपल भेजें",
+      ctaQuote: "कोटेशन प्राप्त करें",
       h1: "उच्च तापीय सहनशीलता",
       h2: "सैंपल रेप्लीकेशन",
       h3: "स्पार्क-रोधी सामग्री",
     },
     about: {
       kicker: "01 / हम कौन हैं",
-      title: "कार्बन ब्रश विशेषज्ञ",
-      desc1: "2006 से, क्राउन कार्बन ब्रश मुंबई में मोटर स्पेयर पार्ट्स के विनिर्माण में कार्यरत है। हम सीधे फैक्ट्रियों को आपूर्ति करते हैं।",
-      desc2: "अपना पुराना या टूटा हुआ पार्ट हमें भेजें। हम लैब में ग्रेड की जांच करके बिल्कुल वैसा ही नया उत्पाद तैयार करते हैं।",
-      statYears: "20 वर्ष",
-      statYearsDesc: "सटीक विनिर्माण का लंबा अनुभव",
+      title: "सटीक कार्बन ब्रश विशेषज्ञ",
+      desc1: "25 से अधिक वर्षों के तकनीकी विनिर्माण अनुभव के साथ, क्राउन कार्बन ब्रश मुंबई में उच्च श्रेणी के कार्बन ब्रश, ब्रश होल्डर, स्लिप रिंग और स्प्रिंग्स का निर्माण करता है। हम सीधे पूरे भारत में औद्योगिक संयंत्रों को आपूर्ति करते हैं।",
+      desc2: "हमें अपना सैंपल या मोटर विवरण भेजें। हम अपनी प्रयोगशाला में सामग्री का विश्लेषण करते हैं और बिल्कुल वैसा ही नया उत्पाद तैयार करते हैं।",
+      statYears: "25+ वर्ष",
+      statYearsDesc: "तकनीकी विनिर्माण का अनुभव",
       statOem: "100+ ग्रेड्स",
-      statOemDesc: "औद्योगिक मानकों के अनुकूल सामग्री",
+      statOemDesc: "मानकों के अनुकूल सामग्री",
       statUnits: "500k+ उत्पाद",
-      statUnitsDesc: "प्रतिवर्ष फैक्ट्रियों को भेजे गए पार्ट्स",
+      statUnitsDesc: "सीधे फैक्ट्रियों को आपूर्ति",
       statNetwork: "अखिल भारतीय",
       statNetworkDesc: "सीधी आपूर्ति और तकनीकी सहायता",
       qaLabel: "लैब टेस्टिंग",
       qaVal: "ग्रेड अंशांकन",
     },
     products: {
-      kicker: "02 / उत्पाद रेंज",
-      title: "सटीक फिटिंग के लिए सैंपल भेजें",
-      desc: "हम मशीन की गति और लोड के अनुसार उत्पाद बनाते हैं। विनिर्देशों को देखने के लिए श्रेणी चुनें।",
-      downloadCat: "कैटलॉग डाउनलोड करें",
+      kicker: "02 / हमारे उत्पाद",
+      title: "सटीक रूप से निर्मित औद्योगिक कंपोनेंट्स",
+      desc: "हम मांग वाली अनुप्रयोगों के लिए कस्टम-निर्मित कार्बन ब्रश, होल्डर, स्लिप रिंग और स्प्रिंग्स का निर्माण करते हैं। नीचे एक श्रेणी चुनें।",
       tabBrushes: "कार्बन ब्रश",
-      tabHolders: "ब्रश होल्डर्स",
-      tabRings: "स्लिप रिंग्स",
+      tabHolders: "कार्बन ब्रश होल्डर",
+      tabRings: "स्लिप रिंग यूनिट्स",
+      tabSprings: "स्प्रिंग्स",
       specsTitle: "तकनीकी विशिष्टता",
       specsSub: "मानक श्रेणियां",
-      advLabel: "संचालन लाभ",
-      gradesLabel: "उपलब्ध ग्रेड विकल्प",
-      opEnvLabel: "लक्षित उद्योग क्षेत्र",
-      enquiryBtn: "इस पुर्जे की पूछताछ भेजें",
+      advLabel: "प्रमुख लाभ",
+      gradesLabel: "उपलब्ध सामग्री विकल्प",
+      opEnvLabel: "लक्षित अनुप्रयोग",
+      enquiryBtn: "इस कंपोनेंट की पूछताछ भेजें",
       drawingBtn: "स्पेक्स सत्यापन का अनुरोध",
-      brushesTitle: "औद्योगिक कार्बन ब्रश",
-      brushesSub: "स्थिर मोटर कम्यूटेशन के लिए अनुकूलित उत्पाद",
-      brushesDesc: "कम्यूटेटर की सुरक्षा के लिए डिज़ाइन किए गए कार्बन ब्रश। इलेक्ट्रो-ग्रेफाइट और तांबा-ग्रेफाइट में उपलब्ध।",
-      brushesF1: "अधिक कंपन और लोड में भी कम घिसावट",
-      brushesF2: "सटीक बेवलिंग और तांबे के शंट फिटिंग",
-      brushesF3: "इंसुलेटेड स्लीव्स के साथ मजबूत शंट केबल",
-      brushesF4: "स्पार्किंग रोकने के लिए सही डेंसिटी रेटिंग",
-      holdersTitle: "स्थिर-दबाव ब्रश होल्डर्स",
-      holdersSub: "कांस्य/पीतल के असेंबली और स्प्रिंग्स",
-      holdersDesc: "ब्रश के घिसने पर भी समान दबाव बनाए रखता है जिससे घर्षण और स्पार्किंग नियंत्रित रहती है।",
-      holdersF1: "जंग-प्रतिरोधी कांस्य या पीतल मिश्र धातु",
+      brushesTitle: "कार्बन ब्रश",
+      brushesSub: "अनुकूलित इलेक्ट्रो-ग्रेफाइट और मेटल-ग्रेफाइट ग्रेड",
+      brushesDesc: "AC/DC मोटरों और जनरेटरों में कम कम्यूटेटर घिसावट और उच्च चालकता के लिए डिज़ाइन किए गए कार्बन ब्रश।",
+      brushesF1: "अत्यधिक यांत्रिक और तापीय लोड के तहत कम घिसावट",
+      brushesF2: "सटीक बेवलिंग कोण और अनुकूलित कॉपर शंट",
+      brushesF3: "इंसुलेटेड स्लीव्स के साथ मजबूत तांबे के केबल",
+      brushesF4: "स्पार्किंग रोकने के लिए सटीक कैलिब्रेटेड डेंसिटी",
+      holdersTitle: "कार्बन ब्रश होल्डर",
+      holdersSub: "स्थिर-दबाव के साथ कांस्य और पीतल के होल्डर्स",
+      holdersDesc: "संचालन के दौरान समान ब्रश स्थिति और अलाइनमेंट बनाए रखने के लिए डिज़ाइन किए गए होल्डर्स।",
+      holdersF1: "जंग-प्रतिरोधी कांस्य और पीतल मिश्र धातु",
       holdersF2: "सैंडविक स्टेनलेस स्टील स्थिर-दबाव स्प्रिंग्स",
-      holdersF3: "DIN मानकों के अनुकूल सटीक स्लॉट आकार",
+      holdersF3: "DIN मानकों के अनुकूल सटीक पॉकेट स्लॉट आकार",
       holdersF4: "Class H श्रेणी के मजबूत इंसुलेशन कम्पोनेंट्स",
-      ringsTitle: "सटीक स्लिप रिंग्स",
-      ringsSub: "विद्युत प्रवाह के लिए रोटरी जॉइंट्स",
-      ringsDesc: "घूमते हुए शाफ्ट पर सुरक्षित और लगातार विद्युत प्रवाह प्रदान करने में सक्षम।",
+      ringsTitle: "स्लिप रिंग यूनिट्स",
+      ringsSub: "विद्युत प्रवाह और सिग्नल ट्रांसफर के लिए रोटरी जॉइंट्स",
+      ringsDesc: "स्थिर स्रोतों से घूमते हुए शाफ्ट में निरंतर विद्युत प्रवाह प्रदान करने वाली स्लिप रिंग असेंबली।",
       ringsF1: "पॉलिश किए गए तांबे या फास्फोरस कांस्य ट्रैक",
       ringsF2: "उच्च वोल्टेज सुरक्षा के लिए मोल्डेड कोर",
       ringsF3: "आसान स्थापना के लिए स्प्लिट या सॉलिड लेआउट",
       ringsF4: "24V DC से लेकर 11kV AC तक की वोल्टेज रेंज",
+      springsTitle: "स्प्रिंग्स",
+      springsSub: "समान संपर्क दबाव के लिए कांस्टेंट फोर्स स्प्रिंग्स",
+      springsDesc: "समान दबाव प्रदान करने और ब्रश बाउंस को रोकने के लिए उच्च-तन्यता स्टेनलेस स्टील स्प्रिंग्स।",
+      springsF1: "ब्रश की पूरी घिसावट सीमा में समान दबाव बनाए रखता है",
+      springsF2: "उच्च श्रेणी SUS301 स्टेनलेस स्टील निर्माण",
+      springsF3: "मायक्रो-स्पार्किंग और कम्यूटेटर क्षति को रोकता है",
+      springsF4: "विशिष्ट होल्डर आकारों के लिए कैलिब्रेटेड दबाव रेटिंग",
       specLabels: {
         grades: "ग्रेड्स",
         current: "करंट डेंसिटी",
@@ -481,16 +499,15 @@ export const translations: Record<"en" | "hi", TranslationContent> = {
         surface: "सतह की फिनिश",
         dielectric: "डाइलेक्ट्रिक स्ट्रेंथ",
         resistance: "इंसुलेशन प्रतिरोध",
+        material: "सामग्री",
+        fatigue: "साइकिल लाइफ",
+        thickness: "पट्टी मोटाई",
       },
     },
     capabilities: {
       kicker: "03 / प्रक्रिया और क्षमता",
       title: "सैंपल-से-उत्पादन प्रक्रिया",
-      desc: "हम आपके सैंपल के आधार पर कार्बन पुर्जे तैयार करते हैं। हमारी पूरी प्रक्रिया स्पष्ट और सीधी है।",
-      processKicker: "व्यावसायिक शर्तें",
-      processTitle: "मूल्य निर्धारण और प्रेषण नियम",
-      payLabel: "भुगतान शर्तें",
-      payDesc: "ऑर्डर के समय 50% अग्रिम (Advance) भुगतान | प्रेषण (Dispatch) से पहले शेष 50% भुगतान।",
+      desc: "हम आपके सैंपल के आधार पर सटीक कार्बन पुर्जे तैयार करते हैं। हमारी पूरी प्रक्रिया स्पष्ट और सीधी है।",
       cap1Title: "CNC मशीनिंग",
       cap1Desc: "सटीक फिटिंग के लिए ±0.05mm की टॉलरेंस पर बेवल कोण की मिलिंग।",
       cap2Title: "तांबे के शंट केबल",
@@ -512,8 +529,8 @@ export const translations: Record<"en" | "hi", TranslationContent> = {
       kicker: "04 / हमारे मूल्य",
       title: "सीधे B2B आपूर्ति के लाभ",
       desc: "कोई बिचौलिया नहीं। हम सीधे इंजीनियरों और खरीद विभागों के साथ काम करते हैं।",
-      f1Title: "20 वर्ष का काम",
-      f1Desc: "मुंबई में 2006 से सीधे कार्बन पुर्जों के निर्माण का अनुभव।",
+      f1Title: "25+ वर्षों का अनुभव",
+      f1Desc: "मुंबई में 25 से अधिक वर्षों का प्रत्यक्ष निर्माण अनुभव।",
       f2Title: "त्वरित निर्माण",
       f2Desc: "सैंपल मिलने पर हम तुरंत CAD डिज़ाइन और निर्माण शुरू करते हैं।",
       f3Title: "कस्टम विनिर्देश",
@@ -570,18 +587,19 @@ export const translations: Record<"en" | "hi", TranslationContent> = {
       successMsg: "पूछताछ प्राप्त हुई। हम जल्द ही आपसे संपर्क करेंगे।",
       errorMsg: "भेजने में विफल। कृपया पुन: प्रयास करें।",
       catBrushes: "कार्बन ब्रश",
-      catHolders: "ब्रश होल्डर्स",
-      catRings: "स्लिप रिंग्स",
-      catCustom: "कस्टम समाधान",
+      catHolders: "कार्बन ब्रश होल्डर",
+      catRings: "स्लिप रिंग यूनिट्स",
+      catSprings: "स्प्रिंग्स",
+      catCustom: "कस्टम आवश्यकता",
       placeholderMsg: "यहाँ पॉकेट का आकार, बेवल कोण, स्प्रिंग तनाव या शंट केबल का विवरण लिखें...",
     },
     footer: {
-      desc: "क्राउन कार्बन ब्रश 2006 से मुंबई में उद्योगों के ब्लूप्रिंट और सैंपल के अनुसार भारी-शुल्क कार्बन पुर्जों का निर्माण करता है।",
+      desc: "क्राउन कार्बन ब्रश 25 से अधिक वर्षों के तकनीकी विनिर्माण अनुभव के साथ मुंबई में कस्टम कार्बन ब्रश, होल्डर, स्लिप रिंग और स्प्रिंग्स का निर्माण करता है।",
       tagline: "हम आपके आर्मेचर की सुरक्षा करते हैं, उच्चतम गुणवत्ता मानकों को पूरा करते हैं।",
       navTitle: "त्वरित लिंक्स",
-      catTitle: "उत्पाद",
+      catTitle: "हमारे उत्पाद",
       officeTitle: "संपर्क विवरण",
-      officeVal: "मलाड वेस्ट, Mumbai, 400095, महाराष्ट्र, भारत",
+      officeVal: "मलाड वेस्ट, मुंबई, 400095, महाराष्ट्र, भारत",
       madeInIndia: "मेड इन इंडिया",
     },
   },

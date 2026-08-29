@@ -299,6 +299,7 @@ export function ContactSection({ lang }: ContactSectionProps) {
                     <option value="carbon-brushes">{t.catBrushes}</option>
                     <option value="brush-holders">{t.catHolders}</option>
                     <option value="slip-rings">{t.catRings}</option>
+                    <option value="springs">{t.catSprings}</option>
                     <option value="custom-solution">{t.catCustom}</option>
                   </select>
                 </div>

@@ -91,23 +91,16 @@ export function HeroSection({ lang }: HeroSectionProps) {
             "{t.tagline}"
           </p>
 
-          {/* Call to Actions */}
+          {/* Call to Actions - Single OTA Button */}
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <Button
               asChild
-              className="bg-industry-accent hover:bg-industry-accent/90 text-white rounded-none font-bold uppercase tracking-wider text-[10px] px-6 py-5 group transition-all"
+              className="bg-industry-accent hover:bg-industry-accent/90 text-white rounded-none font-bold uppercase tracking-widest text-[11px] px-8 py-6 group transition-all shadow-lg"
             >
-              <a href="#products">
-                {t.ctaSolutions}
-                <ArrowRight className="ml-2 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+              <a href="#contact">
+                {t.ctaQuote}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="border-zinc-700 bg-transparent text-white hover:bg-white/10 hover:border-zinc-500 rounded-none font-bold uppercase tracking-wider text-[10px] px-6 py-5 transition-all"
-            >
-              <a href="#contact">{t.ctaContact}</a>
             </Button>
           </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { Send, TestTube, Cpu, Truck, CreditCard, ChevronRight } from "lucide-react";
+import { Send, TestTube, Cpu, Truck, ChevronRight } from "lucide-react";
 import { translations } from "@/lib/translations";
 
 interface CapabilitiesSectionProps {
@@ -48,29 +48,16 @@ export function CapabilitiesSection({ lang }: CapabilitiesSectionProps) {
       <div className="container max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="max-w-xl space-y-2">
-            <span className="text-[10px] font-bold text-industry-accent tracking-widest uppercase block">
-              {t.kicker}
-            </span>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight uppercase">
-              {t.title}
-            </h2>
-            <p className="text-zinc-400 text-xs leading-relaxed">
-              {t.desc}
-            </p>
-          </div>
-
-          {/* Pricing Terms Highlight Badge */}
-          <div className="shrink-0 p-4 border border-zinc-800 bg-zinc-900/80 flex items-center gap-3">
-            <div className="p-2 bg-industry-accent text-white rounded-none">
-              <CreditCard className="h-4.5 w-4.5" />
-            </div>
-            <div className="text-xs">
-              <p className="font-extrabold uppercase tracking-wider text-industry-accent">{t.payLabel}</p>
-              <p className="text-zinc-350 text-[11px] font-semibold">{t.payDesc}</p>
-            </div>
-          </div>
+        <div className="mb-16 space-y-2 max-w-2xl">
+          <span className="text-[10px] font-bold text-industry-accent tracking-widest uppercase block">
+            {t.kicker}
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight uppercase">
+            {t.title}
+          </h2>
+          <p className="text-zinc-400 text-xs leading-relaxed">
+            {t.desc}
+          </p>
         </div>
 
         {/* Stepper Grid (Horizontal Process) */}
