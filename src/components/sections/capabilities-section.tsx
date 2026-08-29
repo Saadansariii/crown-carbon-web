@@ -1,56 +1,44 @@
 "use client";
 
-import { Wrench, ShieldCheck, Flame, GitMerge, FileCheck } from "lucide-react";
+import { Send, TestTube, Cpu, Truck, CreditCard, ChevronRight } from "lucide-react";
+import { translations } from "@/lib/translations";
 
-const capabilities = [
-  {
-    icon: Wrench,
-    title: "Precision Profiling & Bevelling",
-    description: "Machining of double bevels, side channels, and top grooves to tolerances of ±0.05mm, ensuring smooth slide fits in the holder slots.",
-  },
-  {
-    icon: GitMerge,
-    title: "Flexible Shunts & Terminals",
-    description: "Tamp-bonded high-purity copper braids fitted with custom terminators (fork, ring, flag, or quick-connect brass terminals) with silicone or glass-fiber insulation sleeves.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Integrated Wear Sensors",
-    description: "Option to insert embedding wear-alert copper pins or cut wear-limit indicator notches that notify maintenance crews before armature damage occurs.",
-  },
-  {
-    icon: Flame,
-    title: "High-Temperature Spring Mounts",
-    description: "Specialized brush-top pads (such as hard rubber or phenolic cushions) combined with customized spring clips to distribute mechanical pressure.",
-  },
-];
+interface CapabilitiesSectionProps {
+  lang: "en" | "hi";
+}
 
-const steps = [
-  {
-    step: "01",
-    title: "Technical Review & Spec Design",
-    description: "We analyze client blueprints, load requirements, operating speeds, and current load to specify the exact dimensions and parameters.",
-  },
-  {
-    step: "02",
-    title: "Materials Formulation",
-    description: "We select high-purity graphite powders, copper alloys, and bonding resins, sintering them under high pressure to yield specified grades.",
-  },
-  {
-    step: "03",
-    title: "CNC Mechanical Processing",
-    description: "Slabs are cut, milled, bevelled, and drilled on precision machinery. Shunts are secured using high-density tamp copper powder.",
-  },
-  {
-    step: "04",
-    title: "Quality Lab Auditing",
-    description: "Every batch undergoes electrical resistance tests, density measurements, dimensions auditing, and shunt pull-strength verification.",
-  },
-];
+export function CapabilitiesSection({ lang }: CapabilitiesSectionProps) {
+  const t = translations[lang].capabilities;
 
-export function CapabilitiesSection() {
+  const steps = [
+    {
+      step: "01",
+      icon: Send,
+      title: t.step1Title,
+      description: t.step1Desc,
+    },
+    {
+      step: "02",
+      icon: TestTube,
+      title: t.step2Title,
+      description: t.step2Desc,
+    },
+    {
+      step: "03",
+      icon: Cpu,
+      title: t.step3Title,
+      description: t.step3Desc,
+    },
+    {
+      step: "04",
+      icon: Truck,
+      title: t.step4Title,
+      description: t.step4Desc,
+    },
+  ];
+
   return (
-    <section id="infrastructure" className="py-24 bg-zinc-950 text-white relative">
+    <section id="infrastructure" className="py-20 bg-zinc-950 text-white relative">
       {/* Blueprint Grid Lines Overlay */}
       <div 
         className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none z-0" 
@@ -60,64 +48,62 @@ export function CapabilitiesSection() {
       <div className="container max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-20 space-y-2">
-          <span className="text-[11px] font-bold text-industry-accent tracking-widest uppercase block">
-            03 / INFRASTRUCTURE & CAPABILITIES
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight uppercase">
-            Custom Manufacturing Specifications
-          </h2>
-          <p className="text-zinc-400 text-sm leading-relaxed max-w-2xl">
-            We don't just supply standard carbon blocks. Crown Carbon Brush machines custom features to fit specific machinery requirements, helping industrial plants keep heavy rotating assets spinning.
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-xl space-y-2">
+            <span className="text-[10px] font-bold text-industry-accent tracking-widest uppercase block">
+              {t.kicker}
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight uppercase">
+              {t.title}
+            </h2>
+            <p className="text-zinc-400 text-xs leading-relaxed">
+              {t.desc}
+            </p>
+          </div>
+
+          {/* Pricing Terms Highlight Badge */}
+          <div className="shrink-0 p-4 border border-zinc-800 bg-zinc-900/80 flex items-center gap-3">
+            <div className="p-2 bg-industry-accent text-white rounded-none">
+              <CreditCard className="h-4.5 w-4.5" />
+            </div>
+            <div className="text-xs">
+              <p className="font-extrabold uppercase tracking-wider text-industry-accent">{t.payLabel}</p>
+              <p className="text-zinc-350 text-[11px] font-semibold">{t.payDesc}</p>
+            </div>
+          </div>
         </div>
 
-        {/* Capabilities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
-          {capabilities.map((cap, idx) => (
+        {/* Stepper Grid (Horizontal Process) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((item, idx) => (
             <div 
               key={idx} 
-              className="p-6 bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 transition-all hover:bg-zinc-900 group"
+              className="p-6 bg-zinc-900/60 border border-zinc-850 hover:border-zinc-700 transition-all duration-300 relative group flex flex-col justify-between"
             >
-              <div className="p-3 bg-zinc-950 border border-zinc-800 text-industry-accent w-fit mb-6 transition-colors group-hover:bg-industry-accent group-hover:text-white group-hover:border-industry-accent">
-                <cap.icon className="h-5 w-5" />
-              </div>
-              <h3 className="text-md font-bold uppercase tracking-wider text-white mb-3">
-                {cap.title}
-              </h3>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                {cap.description}
-              </p>
-            </div>
-          ))}
-        </div>
+              {/* Chevron indicator for steps connecting */}
+              {idx < 3 && (
+                <div className="hidden lg:block absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 bg-zinc-950 p-1 border border-zinc-850">
+                  <ChevronRight className="h-3.5 w-3.5 text-zinc-600 group-hover:text-industry-accent transition-colors" />
+                </div>
+              )}
 
-        {/* Manufacturing Process Header */}
-        <div className="border-t border-zinc-800 pt-16 mb-16">
-          <span className="text-[11px] font-bold text-industry-accent tracking-widest uppercase block mb-2">
-            QUALITY PROCESS FLOW
-          </span>
-          <h3 className="text-2xl font-bold uppercase tracking-tight text-white">
-            From Raw Carbon Powder to Finished Contacts
-          </h3>
-        </div>
-
-        {/* Stepper Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((item, idx) => (
-            <div key={idx} className="relative space-y-4">
-              <div className="flex items-end gap-3">
-                <span className="text-4xl font-bold text-zinc-850 leading-none select-none font-mono">
-                  {item.step}
-                </span>
-                <div className="h-px bg-zinc-800 flex-1 mb-2 hidden lg:block" />
+              <div className="space-y-4">
+                <div className="flex justify-between items-start">
+                  <div className="p-2.5 bg-zinc-950 border border-zinc-800 text-industry-accent rounded-none group-hover:bg-industry-accent group-hover:text-white transition-all">
+                    <item.icon className="h-4.5 w-4.5" />
+                  </div>
+                  <span className="text-2xl font-black text-zinc-800 font-mono leading-none">
+                    {item.step}
+                  </span>
+                </div>
+                
+                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-100">
+                  {item.title}
+                </h4>
+                <p className="text-[11px] text-zinc-450 leading-relaxed">
+                  {item.description}
+                </p>
               </div>
-              <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-200">
-                {item.title}
-              </h4>
-              <p className="text-xs text-zinc-450 leading-relaxed">
-                {item.description}
-              </p>
             </div>
           ))}
         </div>

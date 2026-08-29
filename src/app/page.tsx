@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { AboutSection } from "@/components/sections/about-section";
@@ -8,45 +11,22 @@ import { OngoingWorkSection } from "@/components/sections/ongoing-work-section";
 import { ProductsSection } from "@/components/sections/products-section";
 import { WhyUsSection } from "@/components/sections/why-us-section";
 
-// import { Header } from "@/components/layout/header";
-// import { HeroHorizontal } from "@/components/layout/hero_horizontal";
-// import { RevealInit } from "@/components/layout/reveil-ts.";
-
- 
 export default function Home() {
+  const [lang, setLang] = useState<"en" | "hi">("en");
+
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Header lang={lang} setLang={setLang} />
       <main className="flex-1">
-        <HeroSection />
-        <AboutSection />
-        <ProductsSection />
-        <CapabilitiesSection />
-        <WhyUsSection />
-        <OngoingWorkSection />
-        <ContactSection />
+        <HeroSection lang={lang} />
+        <AboutSection lang={lang} />
+        <ProductsSection lang={lang} />
+        <CapabilitiesSection lang={lang} />
+        <WhyUsSection lang={lang} />
+        <OngoingWorkSection lang={lang} />
+        <ContactSection lang={lang} />
       </main>
-      <Footer />
+      <Footer lang={lang} />
     </div>
   );
-}  
-
-// export default function Page() {
-//   return (
-//     <div className="flex flex-col min-h-screen">
-//     <main>
-//       <Header />
-//       <RevealInit />
-//       <HeroHorizontal />
-//         <HeroSection />
-//         <AboutSection />
-//         <ProductsSection />
-//         <WhyUsSection />
-//         <OngoingWorkSection />
-//         <ContactSection />
-     
-//     </main>
-//      <Footer />
-//      </div>
-//   )
-// }
+}

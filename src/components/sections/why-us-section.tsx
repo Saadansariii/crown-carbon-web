@@ -1,71 +1,77 @@
 "use client";
 
-import { Award, Globe, Wrench, ShieldCheck, Flame } from "lucide-react";
+import { Award, Globe, Wrench, ShieldCheck } from "lucide-react";
+import { translations } from "@/lib/translations";
 
-const features = [
-  {
-    icon: Award,
-    title: "20 Years Expertise",
-    description: "Manufacturing carbon contacts and technical brushes since 2006 with proven formulation reliability.",
-  },
-  {
-    icon: Globe,
-    title: "Pan India Delivery",
-    description: "Fast-response logistics network serving power stations, steel mills, and cement hubs in all states.",
-  },
-  {
-    icon: Wrench,
-    title: "Tailored Solutions",
-    description: "Custom mechanical dimensions, specialized bevel profiles, and custom-tension shunts built to order.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "ISO Audited Materials",
-    description: "Every batch is verified in our testing lab for density, electrical resistance, and mechanical resilience.",
-  },
-];
+interface WhyUsSectionProps {
+  lang: "en" | "hi";
+}
 
-export function WhyUsSection() {
+export function WhyUsSection({ lang }: WhyUsSectionProps) {
+  const t = translations[lang].whyUs;
+
+  const features = [
+    {
+      icon: Award,
+      title: t.f1Title,
+      description: t.f1Desc,
+    },
+    {
+      icon: Globe,
+      title: t.f2Title,
+      description: t.f2Desc,
+    },
+    {
+      icon: Wrench,
+      title: t.f3Title,
+      description: t.f3Desc,
+    },
+    {
+      icon: ShieldCheck,
+      title: t.f4Title,
+      description: t.f4Desc,
+    },
+  ];
+
   return (
-    <section id="why-us" className="py-24 bg-zinc-900 text-white relative">
-      {/* Structural visual lines */}
+    <section id="why-us" className="py-20 bg-zinc-900 text-white relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-zinc-800" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-zinc-800" />
 
       <div className="container max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-20 space-y-3">
-          <span className="text-[11px] font-bold text-industry-accent tracking-widest uppercase block">
-            04 / WHY CHOOSE US
+        <div className="text-center mb-16 space-y-2">
+          <span className="text-[10px] font-bold text-industry-accent tracking-widest uppercase block">
+            {t.kicker}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight uppercase">
-            Built for Demanding Industrial Environments
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight uppercase">
+            {t.title}
           </h2>
-          <p className="text-zinc-400 max-w-xl mx-auto text-sm leading-relaxed">
-            Reducing commutator wear and motor downtime through verified material quality and engineering precision.
+          <p className="text-zinc-400 max-w-xl mx-auto text-xs leading-relaxed">
+            {t.desc}
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-zinc-950/60 border border-zinc-800/80 p-8 rounded-none transition-all duration-300 hover:border-industry-accent hover:-translate-y-1 hover:bg-zinc-950 hover:shadow-xl group"
+              className="bg-zinc-950/60 border border-zinc-850 p-6 rounded-none transition-all duration-300 hover:border-industry-accent hover:-translate-y-1 hover:bg-zinc-950 hover:shadow-lg group"
             >
               {/* Icon Container */}
-              <div className="flex justify-center mb-6">
-                <div className="p-3.5 bg-zinc-900 border border-zinc-800 text-zinc-400 rounded-none group-hover:text-industry-accent group-hover:bg-zinc-950 group-hover:border-industry-accent transition-all duration-300">
-                  <feature.icon className="h-6 w-6" />
+              <div className="flex justify-center mb-4">
+                <div className="p-2.5 bg-zinc-900 border border-zinc-800 text-zinc-450 rounded-none group-hover:text-industry-accent group-hover:bg-zinc-950 group-hover:border-industry-accent transition-all duration-300">
+                  <feature.icon className="h-5 w-5" />
                 </div>
               </div>
               
               {/* Text Description */}
-              <h3 className="text-sm font-bold uppercase tracking-wider text-center text-zinc-100 mb-3 group-hover:text-white">
+              <h3 className="text-[11px] font-bold uppercase tracking-wider text-center text-zinc-150 mb-2 group-hover:text-white leading-tight">
                 {feature.title}
               </h3>
-              <p className="text-xs text-zinc-450 leading-relaxed text-center">
+              <p className="text-[11px] text-zinc-450 leading-relaxed text-center">
                 {feature.description}
               </p>
             </div>
