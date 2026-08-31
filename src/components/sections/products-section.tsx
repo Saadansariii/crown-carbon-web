@@ -21,7 +21,7 @@ export function ProductsSection({ lang }: ProductsSectionProps) {
       title: t.brushesTitle,
       subtitle: t.brushesSub,
       description: t.brushesDesc,
-      image: "/assets/carbon_image/product-1.jpeg",
+      image: "/product-imgs/carbon_brush.png",
       features: [t.brushesF1, t.brushesF2, t.brushesF3, t.brushesF4],
       specs: [
         { label: t.specLabels.grades, value: "EG251, MC79, SG30" },
@@ -36,7 +36,7 @@ export function ProductsSection({ lang }: ProductsSectionProps) {
       title: t.holdersTitle,
       subtitle: t.holdersSub,
       description: t.holdersDesc,
-      image: "/assets/carbon_image/product-2.jpeg",
+      image: "/product-imgs/holder.jpeg",
       features: [t.holdersF1, t.holdersF2, t.holdersF3, t.holdersF4],
       specs: [
         { label: t.specLabels.tolerance, value: "+0.02 to +0.08mm" },
@@ -51,7 +51,7 @@ export function ProductsSection({ lang }: ProductsSectionProps) {
       title: t.ringsTitle,
       subtitle: t.ringsSub,
       description: t.ringsDesc,
-      image: "/assets/carbon_image/product-3.jpeg",
+      image: "/product-imgs/slip_ring_unit.png",
       features: [t.ringsF1, t.ringsF2, t.ringsF3, t.ringsF4],
       specs: [
         { label: t.specLabels.voltage, value: "24V DC to 11kV AC" },
@@ -66,7 +66,7 @@ export function ProductsSection({ lang }: ProductsSectionProps) {
       title: t.springsTitle,
       subtitle: t.springsSub,
       description: t.springsDesc,
-      image: "/assets/carbon_image/carbon1.jpeg",
+      image: "/product-imgs/spring.jpg",
       features: [t.springsF1, t.springsF2, t.springsF3, t.springsF4],
       specs: [
         { label: t.specLabels.material, value: "Stainless Steel SUS301/304" },
