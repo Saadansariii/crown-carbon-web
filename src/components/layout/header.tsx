@@ -57,13 +57,13 @@ export function Header({ lang, setLang }: HeaderProps) {
       <div className="container mx-auto flex items-center justify-between px-4 md:px-8 max-w-7xl">
         
         {/* Brand Logo & Name */}
-        <Link href="#" className="flex items-center gap-2.5 focus-visible:outline-none group">
-          <div className="relative h-8 w-8 md:h-9 md:w-9 flex items-center justify-center">
+        <Link href="#" className="flex items-center gap-3 focus-visible:outline-none group">
+          <div className="relative h-9 w-9 md:h-10 md:w-10 flex items-center justify-center shrink-0">
             <Image
-              src="/final_logo.png"
+              src="/final_logo.svg"
               alt="Crown Carbon Logo"
-              width={36}
-              height={36}
+              width={40}
+              height={40}
               className="object-contain h-full w-full group-hover:scale-105 transition-transform duration-200"
               priority
             />

@@ -22,13 +22,13 @@ export function Footer({ lang }: FooterProps) {
           {/* Column 1: Brand & Tagline */}
           <div className="space-y-5">
             <div className="flex items-center gap-3">
-              <div className="p-1.5 bg-zinc-900 border border-zinc-800 rounded-none flex items-center justify-center">
+              <div className="p-1.5 bg-zinc-900 border border-zinc-800 rounded-none flex items-center justify-center shrink-0">
                 <Image 
-                  src="/final_logo.png" 
+                  src="/final_logo.svg" 
                   alt="Crown Carbon logo" 
-                  width={32}
-                  height={32}
-                  className="h-8 w-8 object-contain" 
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 object-contain" 
                 />
               </div>
               <div>
