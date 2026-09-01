@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { translations } from "@/lib/translations";
 
@@ -21,11 +22,13 @@ export function Footer({ lang }: FooterProps) {
           {/* Column 1: Brand & Tagline */}
           <div className="space-y-5">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-zinc-900 border border-zinc-800 rounded-none">
-                <img 
-                  src="logofinal1.svg" 
+              <div className="p-1.5 bg-zinc-900 border border-zinc-800 rounded-none flex items-center justify-center">
+                <Image 
+                  src="/final_logo.png" 
                   alt="Crown Carbon logo" 
-                  className="h-7 w-7 object-contain" 
+                  width={32}
+                  height={32}
+                  className="h-8 w-8 object-contain" 
                 />
               </div>
               <div>

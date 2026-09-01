@@ -69,12 +69,12 @@ export function HeroSection({ lang }: HeroSectionProps) {
       <div className="container relative z-20 mx-auto px-4 md:px-8 max-w-7xl">
         <div className="max-w-2xl">
           {/* Engineering Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-900/90 border border-zinc-800 rounded-none mb-6">
+          {/* <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-900/90 border border-zinc-800 rounded-none mb-6">
             <span className="w-2 h-2 rounded-full bg-industry-accent animate-pulse" />
             <span className="text-[9px] font-bold text-industry-silver uppercase tracking-widest">
               {t.badge}
             </span>
-          </div>
+          </div> */}
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-5 uppercase">
             {t.title} <br />

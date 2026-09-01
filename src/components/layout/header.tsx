@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
@@ -17,7 +18,7 @@ export function Header({ lang, setLang }: HeaderProps) {
 
   const t = translations[lang].nav;
 
-  const NAV = [
+  const NAV = [ 
     { href: "#", label: t.home },
     { href: "#about", label: t.about },
     { href: "#products", label: t.products },
@@ -55,14 +56,26 @@ export function Header({ lang, setLang }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full transition-all duration-305 border-t-2 border-t-industry-accent border-b bg-zinc-950/95 backdrop-blur-md border-zinc-800 shadow-xl py-3.5">
       <div className="container mx-auto flex items-center justify-between px-4 md:px-8 max-w-7xl">
         
-        {/* Brand Name */}
-        <Link href="#" className="flex flex-col focus-visible:outline-none group">
-          <span className="text-sm md:text-base font-black tracking-widest text-white uppercase group-hover:text-industry-accent transition-colors leading-none mb-0.5">
-            CROWN
-          </span>
-          <span className="text-[8px] md:text-[9px] font-bold text-zinc-400 uppercase tracking-[0.25em] leading-none">
-            CARBON BRUSH
-          </span>
+        {/* Brand Logo & Name */}
+        <Link href="#" className="flex items-center gap-2.5 focus-visible:outline-none group">
+          <div className="relative h-8 w-8 md:h-9 md:w-9 flex items-center justify-center">
+            <Image
+              src="/final_logo.png"
+              alt="Crown Carbon Logo"
+              width={36}
+              height={36}
+              className="object-contain h-full w-full group-hover:scale-105 transition-transform duration-200"
+              priority
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-sm md:text-base font-black tracking-widest text-white uppercase group-hover:text-industry-accent transition-colors leading-none mb-0.5">
+              CROWN
+            </span>
+            <span className="text-[8px] md:text-[9px] font-bold text-zinc-400 uppercase tracking-[0.25em] leading-none">
+              CARBON BRUSH
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation Links */}

@@ -1,33 +1,40 @@
 "use client";
 
-import { Award, Globe, Wrench, ShieldCheck } from "lucide-react";
+import { Users, Wrench, Globe, ShieldCheck } from "lucide-react";
 import { translations } from "@/lib/translations";
 
 interface WhyUsSectionProps {
   lang: "en" | "hi";
 }
 
+/* 
+  SECTION 04: TRADER & LABOUR / JOB WORK SERVICES
+  Note: Formerly "04 / OUR VALUES" / "04 / हमारे मूल्य".
+  Updated to highlight:
+  1. Seeking Traders, Stockists & Wholesale Distributors
+  2. Operating as Contract Labour & Custom Job Work Manufacturing
+*/
 export function WhyUsSection({ lang }: WhyUsSectionProps) {
   const t = translations[lang].whyUs;
 
   const features = [
     {
-      icon: Award,
+      icon: Users, // Trader & Dealer Network
       title: t.f1Title,
       description: t.f1Desc,
     },
     {
-      icon: Globe,
+      icon: Wrench, // Contract Labour & Job Work
       title: t.f2Title,
       description: t.f2Desc,
     },
     {
-      icon: Wrench,
+      icon: Globe, // Direct Factory Supply
       title: t.f3Title,
       description: t.f3Desc,
     },
     {
-      icon: ShieldCheck,
+      icon: ShieldCheck, // Custom Specs & Testing
       title: t.f4Title,
       description: t.f4Desc,
     },

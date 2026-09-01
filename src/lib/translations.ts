@@ -10,7 +10,7 @@ export interface TranslationContent {
     techQuote: string;
   };
   hero: {
-    badge: string;
+    // badge: string;
     title: string;
     subtitle: string;
     desc: string;
@@ -213,7 +213,7 @@ export const translations: Record<"en" | "hi", TranslationContent> = {
       techQuote: "Request a Quote",
     },
     hero: {
-      badge: "TRUSTED CARBON BRUSH MANUFACTURER WITH 25+ YEARS OF EXPERIENCE",
+      // badge: "TRUSTED CARBON BRUSH MANUFACTURER WITH 25+ YEARS OF EXPERIENCE",
       title: "PRECISION CARBON BRUSHES,",
       subtitle: "BUILT TO LAST.",
       desc: "Manufacturing premium carbon brushes for electric motors, generators and industrial equipment with consistent quality.",
@@ -324,18 +324,22 @@ export const translations: Record<"en" | "hi", TranslationContent> = {
       step4Title: "04 / Secure Delivery",
       step4Desc: "Final testing followed by prompt logistics dispatch across India.",
     },
+    /* 
+      Section 04: Previously "04 / OUR VALUES"
+      Updated to showcase Trader Partnerships & Contract Labour / Job Work Services
+    */
     whyUs: {
-      kicker: "04 / OUR VALUES",
-      title: "Direct B2B Supply Benefits",
-      desc: "No middlemen. We work directly with engineers and purchase departments.",
-      f1Title: "25+ Years Experience",
-      f1Desc: "Over 25 years of direct technical manufacturing experience in Mumbai.",
-      f2Title: "Fast Replication",
-      f2Desc: "Send your sample, we prepare CAD drawings and sinters quickly.",
-      f3Title: "Custom Specifications",
-      f3Desc: "Every detail matched to your machinery requirements.",
-      f4Title: "Tested Batches",
-      f4Desc: "Every batch verified for density and pulling strength.",
+      kicker: "04 / TRADER & LABOUR PARTNERSHIPS",
+      title: "Trader Partnerships & Contract Labour Services",
+      desc: "We are actively looking for traders & distributors, and we also provide custom contract labour / job work services for carbon brush manufacturing.",
+      f1Title: "Looking for Traders",
+      f1Desc: "We invite traders, stockists, and wholesale dealers across India for bulk supply partnerships.",
+      f2Title: "Contract Labour & Job Work",
+      f2Desc: "We operate as contract labour and perform specialized job work for carbon brush machining & assembly.",
+      f3Title: "Direct Factory Supply",
+      f3Desc: "Over 25 years of direct industrial manufacturing experience in Mumbai with zero middleman overheads.",
+      f4Title: "Custom Specs & Testing",
+      f4Desc: "Send your sample for high-precision replication, custom dimensions, and batch quality testing.",
     },
     ongoing: {
       indKicker: "05 / TARGET SECTORS",
@@ -414,7 +418,7 @@ export const translations: Record<"en" | "hi", TranslationContent> = {
       techQuote: "कोटेशन प्राप्त करें",
     },
     hero: {
-      badge: "25+ से अधिक वर्षों के अनुभव के साथ विश्वसनीय कार्बन ब्रश निर्माता",
+      // badge: "25+ से अधिक वर्षों के अनुभव के साथ विश्वसनीय कार्बन ब्रश निर्माता",
       title: "सटीक कार्बन ब्रश,",
       subtitle: "लंबे समय तक चलने के लिए निर्मित।",
       desc: "इलेक्ट्रिक मोटर, जनरेटर और औद्योगिक उपकरणों के लिए निरंतर गुणवत्ता के साथ प्रीमियम कार्बन ब्रश का निर्माण।",
@@ -525,18 +529,22 @@ export const translations: Record<"en" | "hi", TranslationContent> = {
       step4Title: "04 / सुरक्षित डिलीवरी",
       step4Desc: "अंतिम गुणवत्ता परीक्षण के बाद पूरे भारत में त्वरित डिलीवरी की जाती है।",
     },
+    /* 
+      अनुभाग 04: पूर्व में "04 / हमारे मूल्य"
+      व्यापारी साझेदारी और कॉन्ट्रैक्ट लेबर / जॉब वर्क सेवाओं को प्रदर्शित करने के लिए अपडेट किया गया
+    */
     whyUs: {
-      kicker: "04 / हमारे मूल्य",
-      title: "सीधे B2B आपूर्ति के लाभ",
-      desc: "कोई बिचौलिया नहीं। हम सीधे इंजीनियरों और खरीद विभागों के साथ काम करते हैं।",
-      f1Title: "25+ वर्षों का अनुभव",
-      f1Desc: "मुंबई में 25 से अधिक वर्षों का प्रत्यक्ष निर्माण अनुभव।",
-      f2Title: "त्वरित निर्माण",
-      f2Desc: "सैंपल मिलने पर हम तुरंत CAD डिज़ाइन और निर्माण शुरू करते हैं।",
-      f3Title: "कस्टम विनिर्देश",
-      f3Desc: "आपकी मशीन की जरूरतों के अनुसार हर विवरण तैयार किया जाता है।",
-      f4Title: "जांचे गए बैच",
-      f4Desc: "गुणवत्ता सुनिश्चित करने के लिए हर बैच के घनत्व और मजबूती की जांच।",
+      kicker: "04 / व्यापार और श्रम सेवाएं",
+      title: "व्यापारी साझेदारी और कॉन्ट्रैक्ट लेबर सेवाएं",
+      desc: "हम सक्रिय रूप से व्यापारियों और डीलरों की तलाश कर रहे हैं, और कार्बन ब्रश निर्माण के लिए कस्टम कॉन्ट्रैक्ट लेबर / जॉब वर्क सेवाएं भी प्रदान करते हैं।",
+      f1Title: "व्यापारियों की तलाश",
+      f1Desc: "हम थोक आपूर्ति साझेदारी के लिए पूरे भारत से व्यापारियों, स्टॉकिस्टों और थोक विक्रेताओं को आमंत्रित करते हैं।",
+      f2Title: "कॉन्ट्रैक्ट लेबर और जॉब वर्क",
+      f2Desc: "हम कॉन्ट्रैक्ट लेबर के रूप में कार्य करते हैं और कार्बन ब्रश मशीनिंग व असेंबली के लिए विशेष जॉब वर्क करते हैं।",
+      f3Title: "प्रत्यक्ष फैक्टरी आपूर्ति",
+      f3Desc: "मुंबई में 25 से अधिक वर्षों का प्रत्यक्ष औद्योगिक निर्माण अनुभव, बिना किसी मध्यस्थ मार्जिन के।",
+      f4Title: "कस्टम विनिर्देश और जांच",
+      f4Desc: "सटीक निर्माण, कस्टम आयाम और बैच गुणवत्ता जांच के लिए अपना सैंपल भेजें।",
     },
     ongoing: {
       indKicker: "05 / लक्षित उद्योग",
