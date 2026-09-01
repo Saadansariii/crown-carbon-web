@@ -11,8 +11,16 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Crown Carbon Brush - Premium Carbon Brush Solutions",
-  description: "Manufacturer of high-quality carbon brushes for industrial applications across India",
+  title: "Crown Carbon Brush | Industrial Carbon Brushes & Components Manufacturing",
+  description: "Direct manufacturer of heavy-duty industrial carbon brushes, copper shunts, slip rings, and custom carbon machinery components in Mumbai, India.",
+  keywords: [
+    "industrial carbon brushes",
+    "carbon brush manufacturer mumbai",
+    "copper shunt carbon brushes",
+    "slip ring carbon brushes",
+    "traction motor carbon brush",
+    "crown carbon brush",
+  ],
   icons: {
     icon: [
       { url: "/final_logo.svg", type: "image/svg+xml" },
