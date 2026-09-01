@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     "slip ring carbon brushes",
     "crown carbon brush",
   ],
+  // 
   openGraph: {
     title: "Crown Carbon Brush | High-Quality Brushes That Protect Your Armature",
     description: "25+ years of precision manufacturing. Crafted with premium carbon grades to prevent spark damage, ensure smooth operation, and protect your motor armatures across India.",
