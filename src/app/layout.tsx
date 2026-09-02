@@ -46,12 +46,17 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/final_logo.svg", type: "image/svg+xml" },
-      { url: "/final_logo.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-48.png", type: "image/png", sizes: "48x48" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/final_logo.svg",
-    apple: "/final_logo.svg",
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
