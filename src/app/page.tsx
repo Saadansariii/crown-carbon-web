@@ -10,6 +10,7 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { OngoingWorkSection } from "@/components/sections/ongoing-work-section";
 import { ProductsSection } from "@/components/sections/products-section";
 import { WhyUsSection } from "@/components/sections/why-us-section";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 
 export default function Home() {
   const [lang, setLang] = useState<"en" | "hi">("en");
@@ -27,6 +28,7 @@ export default function Home() {
         <ContactSection lang={lang} />
       </main>
       <Footer lang={lang} />
+      <WhatsAppButton />
     </div>
   );
 }
