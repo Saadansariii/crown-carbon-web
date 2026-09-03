@@ -12,7 +12,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: "Crown Carbon Brush | High-Quality Brushes That Protect Your Armature",
-  description: "25+ years of precision manufacturing. Crafted with premium carbon grades to prevent spark damage, ensure smooth operation, and protect your motor armatures across India.",
+  description: "25+ years of precision manufacturing. Crafted with high-quality carbon grades to prevent spark damage, ensure smooth operation, and protect your motor armatures across India.",
   keywords: [
     "industrial carbon brushes",
     "armature protection carbon brush",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   // 
   openGraph: {
     title: "Crown Carbon Brush | High-Quality Brushes That Protect Your Armature",
-    description: "25+ years of precision manufacturing. Crafted with premium carbon grades to prevent spark damage, ensure smooth operation, and protect your motor armatures across India.",
+    description: "25+ years of precision manufacturing. Crafted with high-quality carbon grades to prevent spark damage, ensure smooth operation, and protect your motor armatures across India.",
     siteName: "Crown Carbon Brush",
     images: [
       {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Crown Carbon Brush | High-Quality Brushes That Protect Your Armature",
-    description: "25+ years of precision manufacturing. Crafted with premium carbon grades to prevent spark damage, ensure smooth operation, and protect your motor armatures across India.",
+    description: "25+ years of precision manufacturing. Crafted with high-quality carbon grades to prevent spark damage, ensure smooth operation, and protect your motor armatures across India.",
     images: ["/og-image.png"],
   },
   icons: {
