@@ -46,13 +46,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/final_logo.svg", type: "image/svg+xml" },
       { url: "/favicon.ico", sizes: "any" },
       { url: "/icon-48.png", type: "image/png", sizes: "48x48" },
       { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
       { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico",
+    shortcut: "/final_logo.svg",
     apple: [
+      { url: "/final_logo.svg", type: "image/svg+xml" },
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
